@@ -1,0 +1,50 @@
+We want to register students for the next semester. All students have a receipt which shows the amount pending for the previous semester. A positive amount (or zero) represents that the student has paid extra fees, and a negative amount represents that they have pending fees to be paid. The students are in a queue for the registration. We want to arrange the students in a way such that the students who have a positive amount on the receipt get registered first as compared to the students who have a negative amount. We are given a queue in the form of an array containing the pending amount.
+For example, if the initial queue is [20, 70, -40, 30, -10], then the final queue will be [20, 70, 30, -40, -10]. Note that the sequence of students should not be changed while arranging them unless required to meet the condition.
+⚠️⚠️⚠️ Note:
+- The first line of the input is the length of the array. The second line contains all the elements of the array.
+- The input is already parsed into an array of "strings" and passed to a function. You will need to convert string to integer/number type inside the function.
+- You need to "print" the final result (not return it) to pass the test cases.
+
+For the example discussed above, the input will be:
+5
+20 70 -40 30 -10
+
+Your code needs to print the following to the standard output:
+20 70 30 -40 -10
+
+
+
+
+// COMPLETE THIS FUNCTION
+fun processInput(inputInt: Int, inputArray: List<String>) {
+
+    var positivArray = ArrayList<String>()
+    var negativeArray = ArrayList<String>()
+
+
+    for( i in inputArray){
+        if(i.toInt() >= 0 ){
+            positivArray.add(i)
+        }else{
+            negativeArray.add(i)
+        }
+    }
+
+    var answerArray = positivArray + negativeArray
+
+    var answerString = StringBuilder()
+
+    for(i in answerArray){
+        answerString.append(i).append(" ")
+    }
+
+    println(answerString)
+
+}
+
+// Do not change this function name. You don't need to edit anything below this line
+fun main(args : Array<String>){
+    val inputInt = readLine()!!.toInt();
+    val inputArray = readLine()!!.split(" ");
+    processInput(inputInt, inputArray);
+}
